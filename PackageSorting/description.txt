@@ -1,0 +1,55 @@
+# (1) --- Class Definitions (Read and Stored in Memory) ---
+
+# Interpreter defines the 'Package' class.
+class Package:
+    # ... (all methods inside Package) ...
+
+# Interpreter defines the 'SortingMachine' class.
+class SortingMachine:
+    # ... (all methods inside SortingMachine) ...
+
+# Interpreter defines the 'QAEngineer' class.
+class QAEngineer:
+    # ... (all methods inside QAEngineer) ...
+
+# (2) --- Execution Starts HERE (First Non-Definition Line) ---
+
+print("--- Setting up QA Environment ---") # <--- THIS IS THE ACTUAL STARTING POINT
+
+# (3) --- Object Instantiation (Calling __init__ methods) ---
+
+# When this line is reached, Python calls the SortingMachine's __init__ method.
+# The 'self' parameter refers to the new 'main_sorter' object being created.
+# The print statement inside SortingMachine.__init__ runs.
+main_sorter = SortingMachine("S-ALPHA-001", 1000)
+
+# Same for backup_sorter.
+backup_sorter = SortingMachine("S-BETA-002", 500)
+
+# Same for qa_alex.
+qa_alex = QAEngineer("Alex QA", "EMP001")
+
+# Same for qa_ben.
+qa_ben = QAEngineer("Ben QA", "EMP002")
+
+# Same for package_A, package_B, package_C, package_D.
+package_A = Package("PVN12345", "1000AB", 2.5)
+package_B = Package("PVN67890", "2000CD", 0.8)
+package_C = Package("PVN54321", "3000EF", 15.0)
+package_D = Package("PVN98765", "4000GH", 1.2)
+
+# (4) --- Scenario Execution (Calling Methods on Objects) ---
+
+print("\n" + "="*50 + "\n") # This line executes next.
+
+# Then this line executes.
+print("Scenario 1: Basic successful sort on main machine")
+
+# Then this line executes, calling the go_online method on the main_sorter object.
+main_sorter.go_online()
+
+# This line executes, calling the run_test_case method on the qa_alex object.
+# Inside run_test_case, it will call methods on 'machine' and 'package' objects.
+qa_alex.run_test_case(main_sorter, package_A, expected_outcome_sorted=True)
+
+# ... and the rest of the script continues executing line by line ...
