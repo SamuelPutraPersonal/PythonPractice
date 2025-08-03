@@ -1,4 +1,4 @@
-# calculator
+# calculator program to make example function in python
 def add(num1, num2):
     "this function to add two numbers and return the result"
     result = num1 + num2
