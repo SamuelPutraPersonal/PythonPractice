@@ -1,0 +1,90 @@
+Excellent idea. Having a clear reference guide for both platforms will save you a lot of time and frustration in the future.
+
+Here is an easy-to-follow flow for executing your project on both Mac and PC.
+
+### Easy Flow: Executing the Project in VS Code
+
+---
+
+### Step 1: Open the Terminal
+
+- **PC (Windows):** Open VS Code. Press **`Ctrl + ~`** to open the integrated PowerShell terminal.
+- **Mac:** Open VS Code. Press **`Ctrl + ~`** to open the integrated terminal (which will be a Bash or Zsh shell).
+
+The terminal will automatically be in your project directory (`Python/Practice`).
+
+---
+
+### Step 2: Create a Virtual Environment
+
+This command is the same on both platforms. It creates an isolated environment for your project.
+
+- **PC & Mac:**
+  ```bash
+  python3 -m venv venv
+  ```
+  _(Note: Using `python3` is a good practice as it ensures you are using the correct Python 3 version, especially on systems that might have Python 2.)_
+
+---
+
+### Step 3: Activate the Virtual Environment
+
+This is the most important step and where the commands differ. This command tells your terminal to start using the isolated environment you just created.
+
+- **PC (Windows) - PowerShell:**
+
+  ```bash
+  .\venv\Scripts\activate
+  ```
+
+  _(Note: You do not need `.ps1` or `.bat` here. PowerShell's `activate` script is designed to run with just the file name, and the call operator `&` is not necessary either.)_
+
+- **Mac (Bash/Zsh):**
+
+  ```bash
+  source venv/bin/activate
+  ```
+
+  _(Note: The `bin` folder is where the scripts are stored on Mac/Linux, and `source` is the command to run them in your current shell.)_
+
+After running the correct command, your terminal prompt will change to start with `(venv)`.
+
+---
+
+### Step 4: Install Project Dependencies
+
+This command installs the `pytest` library into your now-active virtual environment.
+
+- **PC & Mac:**
+  ```bash
+  pip install pytest
+  ```
+
+---
+
+### Step 5: Run Your Tests
+
+This command tells `pytest` to find and run all your test files.
+
+- **PC & Mac:**
+  ```bash
+  pytest
+  ```
+
+---
+
+### Final Summary: The Two Key Differences
+
+For your future reference, the only two commands that will be different between Mac and PC for this kind of project are:
+
+1.  **Activating the Virtual Environment:**
+
+    - **PC:** `.\venv\Scripts\activate`
+    - **Mac:** `source venv/bin/activate`
+
+2.  **The file paths inside the `venv` folder:**
+
+    - **PC:** The scripts are in `.\venv\Scripts\`
+    - **Mac:** The scripts are in `venv/bin/`
+
+As long as you remember these two distinctions, you can easily set up and run your Python projects on either operating system.
