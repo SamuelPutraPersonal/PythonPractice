@@ -37,6 +37,19 @@ def test_another_standard_postal_code_valid():
     print(f"Test Passed: {postal_code} routed to Standard Delivery.")
 
 
+def test_another_standard_postal_code_valid_2():
+    """
+    Test case 1: Verify another standard that created by me
+    """
+
+    postal_code = "7000 AA"
+    result = validate_dutch_postal_code(postal_code)
+    assert (
+        result == "Standard Delivery"
+    ), f"Expected 'Standard Delivery' for {postal_code}, but got '{result}'"
+    print(f"Test Passed: {postal_code} routed to Standard Delivery.")
+
+
 def test_non_standard_postal_code_numeric_prefix():
     """
     Test Case 3: Verify a postal code with a non-standard numeric prefix returns "Special Handling".
@@ -45,6 +58,19 @@ def test_non_standard_postal_code_numeric_prefix():
     postal_code = (
         "0123 AB"  # Starts with "01", not in our STANDARD_POSTAL_CODE_PREFIXES
     )
+    result = validate_dutch_postal_code(postal_code)
+    assert (
+        result == "Special Handling (Non-Standard Area)"
+    ), f"Expected 'Special Handling' for {postal_code}, but got '{result}'"
+    print(f"Test Passed: {postal_code} routed to Special Handling (Non-Standard Area).")
+
+
+def test_non_standard_postal_code_numeric():
+    """
+    Test case 2: verify a postal code with a non-standard numeric
+    created by me
+    """
+    postal_code = "123123123123"
     result = validate_dutch_postal_code(postal_code)
     assert (
         result == "Special Handling (Non-Standard Area)"
